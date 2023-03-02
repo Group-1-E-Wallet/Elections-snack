@@ -12,6 +12,7 @@ import lombok.*;
 @Setter
 @Entity
 public class Voter {
+    public String getPassword;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,4 +25,5 @@ public class Voter {
     private String state;
     private String residentialAddress;
     private Boolean isVerified;
+    private String password;
 }
