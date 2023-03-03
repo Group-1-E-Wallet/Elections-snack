@@ -1,4 +1,4 @@
-package models;
+package com.semicolon.electionsnacks.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +12,10 @@ import lombok.*;
 @Setter
 @Entity
 public class Voter {
+    public String getPassword;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String lastName;
     private String firstName;
     private String Gender;
@@ -24,4 +25,7 @@ public class Voter {
     private String state;
     private String residentialAddress;
     private Boolean isVerified;
+    private String password;
+    private ElectionType electionType;
+    private String emailAddress;
 }

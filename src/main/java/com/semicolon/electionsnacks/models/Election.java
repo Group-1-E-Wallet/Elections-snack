@@ -1,4 +1,4 @@
-package models;
+package com.semicolon.electionsnacks.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Election {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private ElectionType electionType;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
