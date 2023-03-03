@@ -1,4 +1,4 @@
-package models;
+package com.semicolon.electionsnacks.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +18,7 @@ public class Voter {
     private String lastName;
     private String firstName;
     private String Gender;
+    private String emailAddress;
     private String dateOfBirth;
     private String maritalStatus;
     private String LgaOfOrigin;

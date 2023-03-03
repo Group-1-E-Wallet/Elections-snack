@@ -1,4 +1,4 @@
-package models;
+package com.semicolon.electionsnacks.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
