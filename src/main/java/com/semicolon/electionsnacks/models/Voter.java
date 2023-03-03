@@ -1,4 +1,4 @@
-package models;
+package com.semicolon.electionsnacks.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +10,17 @@ import lombok.*;
 @RequiredArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity
 public class Voter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String lastName;
     private String firstName;
-    private String Gender;
+    private String emailAddress;
+    private String password;
+    private String gender;
     private String dateOfBirth;
     private String maritalStatus;
     private String LgaOfOrigin;
