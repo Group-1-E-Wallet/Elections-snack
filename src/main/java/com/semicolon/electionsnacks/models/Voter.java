@@ -13,6 +13,7 @@ import lombok.*;
 @Builder
 @Entity
 public class Voter {
+    public String getPassword;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,4 +28,7 @@ public class Voter {
     private String state;
     private String residentialAddress;
     private Boolean isVerified;
+    private String password;
+    private ElectionType electionType;
+    private String emailAddress;
 }

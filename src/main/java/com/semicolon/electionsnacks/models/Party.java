@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Party {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String logo;
     private String name;
 }
