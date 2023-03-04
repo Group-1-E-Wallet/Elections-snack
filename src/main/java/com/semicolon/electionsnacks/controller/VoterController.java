@@ -3,6 +3,7 @@ package com.semicolon.electionsnacks.controller;
 import com.semicolon.electionsnacks.dtos.request.EmailAddressRequest;
 import com.semicolon.electionsnacks.dtos.request.UpdatePasswordRequest;
 import com.semicolon.electionsnacks.dtos.response.ApiErrorResponse;
+import com.semicolon.electionsnacks.dtos.response.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
