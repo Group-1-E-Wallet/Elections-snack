@@ -2,20 +2,16 @@ package com.semicolon.electionsnacks.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.http.HttpStatus;
+import lombok.Data;
 
 import java.time.ZonedDateTime;
-
-@Getter
-@Setter
+@Data
 @Builder
 @AllArgsConstructor
 public class ApiResponse {
     private ZonedDateTime timeStamp;
-    private HttpStatus statusCode;
-    private String path;
+    private boolean isSuccessful;
     private Object data;
-    private Boolean isSuccessful;
+    private int status;
+    private String path;
 }
