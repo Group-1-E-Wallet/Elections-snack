@@ -28,5 +28,4 @@ public class Voter {
     private Boolean isVerified;
     private String password;
     private ElectionType electionType;
-    private String emailAddress;
 }
