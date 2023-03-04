@@ -19,6 +19,7 @@ public class Voter {
     private String lastName;
     private String firstName;
     private String Gender;
+    private String emailAddress;
     private String dateOfBirth;
     private String maritalStatus;
     private String LgaOfOrigin;
@@ -27,5 +28,4 @@ public class Voter {
     private Boolean isVerified;
     private String password;
     private ElectionType electionType;
-    private String emailAddress;
 }

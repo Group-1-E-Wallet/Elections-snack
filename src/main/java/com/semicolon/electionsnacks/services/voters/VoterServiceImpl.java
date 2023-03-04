@@ -1,35 +1,47 @@
 package com.semicolon.electionsnacks.services.voters;
 
+import com.semicolon.electionsnacks.exceptions.RegistrationException;
+import com.semicolon.electionsnacks.models.Voter;
+import com.semicolon.electionsnacks.repositories.VoterRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import com.semicolon.electionsnacks.dtos.request.EmailAddressRequest;
 import com.semicolon.electionsnacks.dtos.request.UpdatePasswordRequest;
 import com.semicolon.electionsnacks.exceptions.GenericException;
 import com.semicolon.electionsnacks.models.OTPToken;
-import com.semicolon.electionsnacks.models.Voter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.semicolon.electionsnacks.repositories.OtpTokenRepository;
 import com.semicolon.electionsnacks.repositories.VoterRepository;
 import com.semicolon.electionsnacks.services.EmailService;
 import com.semicolon.electionsnacks.utils.PasswordEncoder;
-
-import java.time.LocalDateTime;
-
 import static com.semicolon.electionsnacks.utils.EmailUtils.sendEmail;
 
-
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class VoterServiceImpl implements VoterService{
-    @Autowired
     private VoterRepository voterRepository;
-    @Autowired
+
     private OtpTokenRepository otpTokenRepository;
-    @Autowired
+
     private PasswordEncoder passwordEncoder;
-    @Autowired
+
     private EmailService emailService;
 
+    @Override
+    public void enableVoter(String email) {
+        Voter foundEmail = voterRepository.
+                findByEmailAddressIgnoreCase(email).
+                orElseThrow(()->
+                        new RegistrationException("Invalid email"));
+        foundEmail.setIsVerified(true);
+    }
 
+    @Override
+    public Optional<Voter> findByEmailAddressIgnoreCase(String emailAddress) {
+        return Optional.of(voterRepository.findByEmailAddressIgnoreCase(emailAddress).orElseThrow());
+    }
     @Override
     public String forgotPassword(EmailAddressRequest email) {
         Voter forgetVoter = voterRepository.findByEmailAddressIgnoreCase(email.getEmailAddress())

@@ -2,6 +2,7 @@ package com.semicolon.electionsnacks.controller;
 
 import com.semicolon.electionsnacks.dtos.request.EmailAddressRequest;
 import com.semicolon.electionsnacks.dtos.request.UpdatePasswordRequest;
+import com.semicolon.electionsnacks.dtos.response.ApiErrorResponse;
 import com.semicolon.electionsnacks.dtos.response.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -27,7 +28,7 @@ public class VoterController {
     public ResponseEntity<?>forgetPassword(@Valid @RequestBody EmailAddressRequest emailAddressRequest,
                                            HttpServletRequest httpServletRequest){
         String response = voterService.forgotPassword(emailAddressRequest);
-        ApiResponse apiResponse = ApiResponse.builder()
+        ApiErrorResponse apiResponse = ApiErrorResponse.builder()
                 .timeStamp(ZonedDateTime.now())
                 .data(response)
                 .path(httpServletRequest.getRequestURI())
@@ -41,7 +42,7 @@ public class VoterController {
     public ResponseEntity<?> changePassword(@Valid @RequestBody UpdatePasswordRequest updatePasswordRequest,
                                             HttpServletRequest httpServletRequest){
         String change = voterService.changePassword(updatePasswordRequest);
-        ApiResponse apiResponse = ApiResponse.builder()
+        ApiErrorResponse apiResponse = ApiErrorResponse.builder()
                 .timeStamp(ZonedDateTime.now())
                 .data(change)
                 .statusCode(HttpStatus.OK)
