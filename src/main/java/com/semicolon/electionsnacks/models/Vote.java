@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @ManyToOne
     private Candidate candidate;
 }

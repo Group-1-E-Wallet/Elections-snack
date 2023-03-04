@@ -27,4 +27,9 @@ public class TokenServiceImpl implements TokenService {
     public void saveConfirmationToken(Token confirmationToken) {
         tokenRepository.save(confirmationToken);
     }
+
+    @Override
+    public void deleteExpiredToken() {
+        tokenRepository.deleteTokenByExpiredAtBefore(LocalDateTime.now());
+    }
 }

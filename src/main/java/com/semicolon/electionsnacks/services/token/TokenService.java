@@ -8,4 +8,6 @@ public interface TokenService {
     Optional<Token> getConfirmationToken(String token);
     void setConfirmationToken(String token);
     void saveConfirmationToken(Token confirmationToken);
+
+    void deleteExpiredToken();
 }

@@ -11,7 +11,7 @@ import lombok.*;
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     private Party party;
     private ElectionType electionType;

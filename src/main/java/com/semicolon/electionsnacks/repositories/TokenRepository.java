@@ -4,7 +4,6 @@ import com.semicolon.electionsnacks.models.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -17,4 +16,6 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
             " SET token.confirmedAt = ?1" +
             " WHERE token.token = ?2")
     void confirmedAt(LocalDateTime now, String token);
+
+    void deleteTokenByExpiredAtBefore(LocalDateTime now);
 }
