@@ -6,8 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-@AllArgsConstructor
+
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -23,9 +24,19 @@ public class Voter {
     private String dateOfBirth;
     private String maritalStatus;
     private String LgaOfOrigin;
+    private String password;
     private String state;
     private String residentialAddress;
-    private Boolean isVerified;
-    private String password;
+    private boolean isVerified = false;
     private ElectionType electionType;
+
+
+    public Voter(String emailAddress, String firstName, String lastName, String password) {
+        this.emailAddress = emailAddress;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
+
 }

@@ -14,4 +14,6 @@ public class UpdatePasswordRequest {
     private String oldPassword;
     @Pattern(regexp="^([a-zA-Z\\d@*#$&!]{8,15})$")
     private String newPassword;
+    @Pattern(regexp="^([a-zA-Z\\d@*#$&!]{8,15})$")
+    private String confirmNewPassword;
 }
