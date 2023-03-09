@@ -6,14 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-
+@Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
 public class Voter {
-    public String getPassword;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

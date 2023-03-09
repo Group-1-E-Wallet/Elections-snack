@@ -1,5 +1,6 @@
 package com.semicolon.electionsnacks.services.registration;
 
+import com.semicolon.electionsnacks.dtos.request.LoginRequest;
 import com.semicolon.electionsnacks.dtos.request.RegistrationRequest;
 import com.semicolon.electionsnacks.dtos.request.ResendTokenRequest;
 import com.semicolon.electionsnacks.dtos.request.TokenConfirmationRequest;
@@ -154,6 +155,19 @@ public class RegistrationServiceImpl implements RegistrationService {
             sign.setFirstName(registrationRequest.getFirstName());
             sign.setLastName(registrationRequest.getLastName());
             return sign;
+    }
+
+    @Override
+    public String login(LoginRequest loginRequest){
+        var foundUser=voterService.findByEmailAddressIgnoreCase(loginRequest.getEmailAddress())
+                .orElseThrow(( ) -> new RegistrationException("User not found"));
+
+
+        if(!(BCrypt.checkpw(loginRequest.getPassword(),foundUser.getPassword()))){
+            throw new RegistrationException("Invalid login details");
+        }
+
+        return "Login Successful";
     }
 
     private String hashPassword (String password){

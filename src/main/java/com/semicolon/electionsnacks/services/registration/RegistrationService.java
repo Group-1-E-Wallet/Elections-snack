@@ -1,5 +1,6 @@
 package com.semicolon.electionsnacks.services.registration;
 
+import com.semicolon.electionsnacks.dtos.request.LoginRequest;
 import com.semicolon.electionsnacks.dtos.request.RegistrationRequest;
 import com.semicolon.electionsnacks.dtos.request.ResendTokenRequest;
 import com.semicolon.electionsnacks.dtos.request.TokenConfirmationRequest;
@@ -12,5 +13,5 @@ public interface RegistrationService {
     String resendToken(ResendTokenRequest resendTokenRequest);
     String generateToken(Voter foundVoter);
     SignUpResponse registration(RegistrationRequest registrationRequest) throws MessagingException;
-
+ String login (LoginRequest loginRequest);
 }
